@@ -1,12 +1,8 @@
-CREATE TABLE [dbo].[CardDatabase]
-(
-  [ID] INT NOT NULL 
-  PRIMARY KEY (CardID)
-  FOREIGN KEY (CardID) REFERENCES MainDB(CardID)
-    CardID int,
+CREATE TABLE card (
+    CardID int NOT NULL,
     Year date,
     Fname varchar(255),
-    LName varchar(255),
+    LName varchar(255) NOT NULL,
     Product varchar(255),
     Manufacturer varchar(255),
     Parallel varchar(255),
@@ -17,7 +13,77 @@ CREATE TABLE [dbo].[CardDatabase]
     Grade decimal(4),
     GradeCompany varchar(3),
 
+    PRIMARY KEY (CardID)
+    FOREIGN KEY (CardID) REFERENCES MainDB(CardID)
+);
 
+CREATE TABLE other (
+    CardID int NOT NULL,
+    Year date,
+    Fname varchar(255),
+    LName varchar(255) NOT NULL,
+    Product varchar(255),
+    Manufacturer varchar(255),
+    Parallel varchar(255),
+    Autograph boolean,
+    PrintNumber varchar(255),
+    CardStatus int,
+    GradedStatus boolean,
+    Grade decimal(4),
+    GradeCompany varchar(3),
 
-  
+    PRIMARY KEY (CardID)
+    FOREIGN KEY (CardID) REFERENCES MainDB(CardID)
+);
+
+CREATE TABLE sport (
+    CardID int NOT NULL,
+    Year date,
+    Fname varchar(255),
+    LName varchar(255) NOT NULL,
+    Product varchar(255),
+    Manufacturer varchar(255),
+    Parallel varchar(255),
+    Autograph boolean,
+    PrintNumber varchar(255),
+    CardStatus int,
+    GradedStatus boolean,
+    Grade decimal(4),
+    GradeCompany varchar(3),
+
+    PRIMARY KEY (CardID)
+    FOREIGN KEY (CardID) REFERENCES MainDB(CardID)
+);
+
+CREATE TABLE tcg (
+    CardID int NOT NULL,
+    Year date,
+    Fname varchar(255),
+    LName varchar(255) NOT NULL,
+    Product varchar(255),
+    Manufacturer varchar(255),
+    Parallel varchar(255),
+    Autograph boolean,
+    PrintNumber varchar(255),
+    CardStatus int,
+    GradedStatus boolean,
+    Grade decimal(4),
+    GradeCompany varchar(3),
+
+    PRIMARY KEY (CardID)
+    FOREIGN KEY (CardID) REFERENCES MainDB(CardID)
+);
+
+CREATE TABLE pack (
+  PackID VARCHAR2 NOT NULL,
+  PackName VARCHAR2 NOT NULL,
+  PackDate DATE,
+
+  PRIMARY KEY (PackID)
+  FOREIGN KEY (CardID)
+);
+
+CREATE TABLE manufacturer (
+  ManID VARCHAR2,
+  ManufacturerDate DATE,
 )
