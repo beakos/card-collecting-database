@@ -1,3 +1,8 @@
+-- Database option 1.0
+-- Attributes need cleaning
+-- Vefify relationships between all tables
+-- Verify all attributes types according to the attributes names
+
 CREATE TABLE card (
     CardID int NOT NULL,
     Year date,

@@ -1,3 +1,7 @@
+-- Database Option 2.0
+-- Add other according attributes
+-- Change attribute names from _ to .
+
 CREATE TABLE otherCards(
     otherCard_ID VARCHAR2(5) NOT NULL,          -- ID for database
     otherCard_Actual-ID VARCHAR2(50),           -- ID of the card if aplicable
