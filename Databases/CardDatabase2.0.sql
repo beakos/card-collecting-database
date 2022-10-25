@@ -17,13 +17,13 @@
 
 -- Multi-Line Query - Create
 CREATE TABLE otherCards(
-    ocID VARCHAR2(5) NOT NULL PRIMARY KEY, 
-    ocaID VARCHAR2(50), 
-    ocName VARCHAR2(255) NOT NULL, 
-    ocYear VARCHAR2(20),  
-    ocBrand VARCHAR(75), 
-    ocNotes VARCHAR2(255), 
-    ocQuanitiy NUMBER NOT NULL CHECK (length(ocQuanitiy) <=3), 
+    ocID VARCHAR2(5) NOT NULL PRIMARY KEY,
+    ocaID VARCHAR2(50),
+    ocName VARCHAR2(255) NOT NULL,
+    ocYear VARCHAR2(20),
+    ocBrand VARCHAR(75),
+    ocNotes VARCHAR2(255),
+    ocQuanitiy NUMBER NOT NULL CHECK (length(ocQuanitiy) <=3),
     ocHolographic CHAR(1) CHECK(ocHolographic LIKE'y' OR ocHolographic LIKE 'Y' OR ocHolographic LIKE 'n' OR ocHolographic LIKE 'N'));
 
 -- Single Line Query - Create + Insert
@@ -51,7 +51,7 @@ CREATE TABLE sportsCards(
     scCategory VARCHAR2(20),
     scYear VARCHAR2(20),
     scNotes VARCHAR2(255),
-    scQuanitiy NUMBER NOT NULL CHECK (length(scQuanitiy) <=3), 
+    scQuanitiy NUMBER NOT NULL CHECK (length(scQuanitiy) <=3),
     scHolographic CHAR(1) CHECK(scHolographic LIKE'y' OR scHolographic LIKE 'Y' OR scHolographic LIKE 'n' OR scHolographic LIKE 'N'));
 
 -- Single Line Query - Create + Insert
