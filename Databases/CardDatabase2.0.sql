@@ -1,35 +1,84 @@
 -- Database Option 2.0
 -- Add other according attributes
--- Change attribute names from _ to .
+-- Works with sqlite
+-- Run commands inside Winterr_Cards.db
 
+---Query 1--
+-- Consitis of:
+    -- ID for database
+    -- ID of the card if aplicable
+    -- Name of the card
+    -- Type of Sports card
+    -- Year of the card: can use e.g. 2018 or 2018-19 or 2018-19 and 2020-2023
+    -- Brand name of the card
+    -- Notes about card i.e.
+    -- Amount of each card owned
+    -- Marks Holo/special card
+
+-- Multi-Line Query
 CREATE TABLE otherCards(
-    otherCard_ID VARCHAR2(5) NOT NULL,          -- ID for database
-    otherCard_Actual-ID VARCHAR2(50),           -- ID of the card if aplicable
-    otherCard_Name VARCHAR2(255) NOT NULL,      -- Name of the card
-    otherCard_Year VARCHAR2(20),                -- Year of the card: can use e.g. 2018 or 2018-19 or 2018-19 and 2020-2023
-    otherCard_Brand VARCHAR(75),                -- Brand name of the card
-    otherCard_Notes VARCHAR2(255),              -- Notes about card i.e.
-    otherCard_Quanitiy NUMBER NOT NULL,         -- Amount of each card owned
-    otherCard_Holographic CHAR(1) CHECK (sportsCard_Holographic IN ('y', 'Y', 'n', 'N')),
+    ocID VARCHAR2(5) NOT NULL PRIMARY KEY, 
+    ocaID VARCHAR2(50), 
+    ocName VARCHAR2(255) NOT NULL, 
+    ocYear VARCHAR2(20),  
+    ocBrand VARCHAR(75), 
+    ocNotes VARCHAR2(255), 
+    ocQuanitiy NUMBER NOT NULL CHECK (length(ocQuanitiy) <=3), 
+    ocHolographic CHAR(1) CHECK('y' OR 'Y' OR 'n' OR 'N'));
 
-    PRIMARY KEY (otherCard_ID),
-)
+-- Single Line Query
+CREATE TABLE otherCards(ocID VARCHAR2(5) NOT NULL PRIMARY KEY, ocaID VARCHAR2(50), ocName VARCHAR2(255) NOT NULL, ocYear VARCHAR2(20),  ocBrand VARCHAR(75), ocNotes VARCHAR2(255), ocQuanitiy NUMBER NOT NULL CHECK (length(ocQuanitiy) <=3), ocHolographic CHAR CHECK('y' OR 'Y' OR 'n' OR 'N'));
+
+INSERT INTO otherCards VALUES(00000, 000111, "John Smith", 2022, "Panini", "good condition", 2, "Y");
+
 INSERT INTO otherCards
 VALUES();
 
-CREATE TABLE sportsCards(
-    sportsCard_ID VARCHAR2(5) NOT NULL,          -- ID for database
-    sportsCard_Actual-ID VARCHAR2(50),           -- ID of the card if aplicable
-    sportsCard_Name VARCHAR2(255) NOT NULL,      -- Name of the card
-    sportsCard_Sports-Category VARCHAR2(20),     -- Type of Sports card
-    sportsCard_Year VARCHAR2(20),                -- Year of the card: can use e.g. 2018 or 2018-19 or 2018-19 and 2020-2023
-    sportsCard_Brand VARCHAR(75),                -- Brand name of the card
-    sportsCard_Notes VARCHAR2(255),              -- Notes about card i.e.
-    sportsCard_Quanitiy NUMBER NOT NULL,         -- Amount of each card owned
-    sportsCard_Holographic CHAR(1) CHECK (sportsCard_Holographic IN ('y', 'Y', 'n', 'N')), -- Marks Holo/special card
+CREATE TABLE Class (
+    ClassID char(5) PRIMARY KEY 
+    CHECK (ClassID LIKE 'CT[1-9][A-Z]' OR 'AT[1-9][1-9][A-Z]'),
+    ClassQuantity int NOT NULL CHECK (ClassQuantity > 0)
+);
 
-    PRIMARY KEY (sportsCard_ID),
-)
+INSERT INTO Class
+VALUES ('CT2D', 50);
+
+
+CREATE TABLE Class (
+  ClassID char(5) PRIMARY KEY 
+  CHECK (ClassID LIKE 'CT[1-9][A-Z]' OR ClassID LIKE 'AT[1-9][1-9][A-Z]'),
+    ClassQuantity int NOT NULL CHECK (ClassQuantity > 0)
+);
+
+INSERT INTO Class
+VALUES ('CT2D', 50);
+
+--Query 2--
+-- Consitis of:
+    -- ID for database
+    -- ID of the card if aplicable
+    -- Name of the card
+    -- Type of Sports card
+    -- Year of the card: can use e.g. 2018 or 2018-19 or 2018-19 and 2020-2023
+    -- Brand name of the card
+    -- Notes about card i.e.
+    -- Amount of each card owned
+    -- Marks Holo/special card
+
+-- Multi Line Query
+CREATE TABLE sportsCards(
+    scID VARCHAR2(5) NOT NULL PRIMARY KEY,
+    scaID VARCHAR2(50),
+    scName VARCHAR2(255) NOT NULL,
+    scCategory VARCHAR2(20),
+    scYear VARCHAR2(20),
+    scNotes VARCHAR2(255),
+    scQuanitiy NUMBER NOT NULL,
+    scHolographic CHAR(1) CHECK ('y' OR 'Y' OR 'n' OR 'N'));
+
+-- Single Line Query
+CREATE TABLE sportsCards(scID VARCHAR2(5) NOT NULL PRIMARY KEY, scaID VARCHAR2(50), scName VARCHAR2(255) NOT NULL, scCategory VARCHAR2(20), scYear VARCHAR2(20), scNotes VARCHAR2(255), scQuanitiy NUMBER NOT NULL, scHolographic CHAR(1) CHECK ('y' OR 'Y' OR 'n' OR 'N'));
+
 INSERT INTO sportsCards
 VALUES();
 
