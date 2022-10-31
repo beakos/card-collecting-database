@@ -30,3 +30,5 @@ CREATE TABLE tcgCards(
     tcgNotes VARCHAR2(255),
     tcgQuanitiy NUMBER NOT NULL CHECK (length(tcgQuanitiy) <=3),
     tcgHolographic CHAR(1) CHECK(tcgHolographic LIKE'y' OR tcgHolographic LIKE 'Y' OR tcgHolographic LIKE 'n' OR tcgHolographic LIKE 'N'));
+
+-- test commit
